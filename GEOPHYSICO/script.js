@@ -1,7 +1,8 @@
- // Function to start the countdown
- function startCountdown() {
+// Function to start the countdown
+function startCountdown() {
     var inputElement = document.getElementById("countdownInput");
     var outputElement = document.getElementById("countdownOutput");
+    var completionTitleElement = document.getElementById("completionTitle");
 
     // Get the user input
     var count = parseInt(inputElement.value);
@@ -17,18 +18,32 @@
 
     // Clear previous countdown
     outputElement.innerHTML = "";
+    completionTitleElement.innerHTML = "The Words of the Week!"; // Reset completion title
 
-    // Start the countdown
-    var interval = setInterval(function() {
-        outputElement.innerHTML = "T - " + count + " seconds";
+    // Using a Promise for the countdown
+    const countdownPromise = new Promise((resolve) => {
+        var interval = setInterval(function () {
+            outputElement.innerHTML = "T - " + count + " seconds";
 
-        if (count === 0) {
-            outputElement.innerHTML = "Liftoff!";
-            clearInterval(interval);
-        }
+            if (count === 0) {
+                outputElement.innerHTML = "You've run out of time!";
+                clearInterval(interval);
+                resolve(); // Resolve the Promise when the countdown is completed
+            }
 
-        count--;
-    }, 1000);
+            count--;
+        }, 1000);
+    });
+
+    // Using the Promise
+    countdownPromise.then(() => {
+        console.log("Countdown Completed!"); // Log in the console when the countdown is completed
+
+        // Display completion title after one second (adjust the delay as needed)
+        setTimeout(() => {
+            completionTitleElement.innerHTML = "It's like trying to hit snooze on life—doesn't quite work, does it?"; // Update completion title
+        }, 1000);
+    });
 }
 
 // Event listener for the button
