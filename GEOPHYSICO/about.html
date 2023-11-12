@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="../JS/Scripts/jQuery_3.7.1.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Include the Header -->
+    <script>
+        $(function(){
+            // Load header.html and append it to the body
+            $("#header").load("header.html");
+
+            // Load footer.html and append it to the body
+            $("#footer").load("footer.html");
+        });
+    </script>
+
+    <!-- Include the Header -->
+    <div id="header"></div>
+
+    <section class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 text-center">
+                <h2>Countdown Timer</h2>
+                <div class="form-inline justify-content-center">
+                    <label class="mr-2" for="countdownInput">Enter a number:</label>
+                    <input type="number" class="form-control-sm mr-2" id="countdownInput" min="1" max="100"/>
+                    <button id="startButton" class="btn btn-dark text-center mb-1">Start Countdown</button>
+                </div>
+                <div class="justify-content-center" id="countdownOutput"></div>
+            </div>
+            <div class="col-lg-6 text-center">
+                <h2>The Trick of the Week</h2>
+            </div>
+        </div>
+    </section>
+
+    <script src ="script.js"></script>
+
+    <!-- Include the Footer -->
+    <div id="footer"></div> 
+
+</body>
+</html>
