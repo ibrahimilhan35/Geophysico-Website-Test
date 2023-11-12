@@ -1,4 +1,8 @@
-Week-2 "project":
+Week-4 p2p part:
+- about.html includes the countdown timer
+- script.js  
+
+Week-2 p2p part:
 - index.html: home page with a carousel
 - services.html: gallery - products/services
 - styles.css
